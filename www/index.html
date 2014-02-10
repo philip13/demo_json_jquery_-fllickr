@@ -32,9 +32,8 @@
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
-		<form>
-     		<input name="search-5" id="search-5" value="" placeholder="Busqueda de imagenes" type="search">
-		</form>
+		<input name="text-1" id="text-1" value="" type="text">
+		<button data-role="none" id="buscar"  >Buscar</button>
         <div id="images">
         </div>
         
@@ -45,12 +44,24 @@
 		<h4>Page Footer</h4>
 	</div><!-- /footer -->
 </div><!-- /page -->
-   <script>$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=?",
-        function(data){
-          $.each(data.items, function(i,item){
-            $("<img/>").attr("src", item.media.m).appendTo("#images");
-            if ( i == 20) return false;
-          });
-        });</script>           
+   <script>
+   		$(document).on("ready",main)
+		function main(){
+			$("#buscar").on("click",function(){
+				var texto="";
+				var tag= $("#text-1").val();
+				
+				//obtener busqueda medianta json
+				$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+tag+"&tagmode=any&format=json&jsoncallback=?",function(data){
+					$.each(data.items, function(i,item){
+						$("<img/>").attr("src", item.media.m).appendTo("#images");
+					
+					});	
+					
+				});
+			});	
+		
+		}
+	</script>
   </body>
 </html>
