@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+/* Estilo para cajas contenedor de imagenes
+*/
+
+.box {
+  float: left;
+  width: 150px;
+  height:150px;
+  margin: 0.1em;
+}
+
+div.box-article{
+	width: auto;
+	height:auto;
+  	
+}
+div.box-article{
+	height:auto;
+  	width: auto;
+  	margin-left: 5%;
+	margin-right: 5%;
+}
+img.article{
+	width:75%;
+	height:auto;
+	margin-left:15%;
+	margin-right:15%;
+}
+/*ancho y alto 450px
+//tump max 200x200 px
+//mini tump 100x100 px*/
+
